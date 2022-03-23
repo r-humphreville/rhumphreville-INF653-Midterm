@@ -3,7 +3,7 @@ class Categories {
     private $conn;
     private $table = 'categories';
     public $id;
-    public $category;
+    public $categories;
 
     public function __construct($db) {
         $this->conn = $db;
@@ -12,7 +12,7 @@ class Categories {
     public function read() {
         $query = 'SELECT 
         id,
-        category
+        categories
         From 
         ' . $this->table;
 
@@ -27,7 +27,7 @@ class Categories {
     public function read_single() {
         $query = 'SELECT
         id,
-        category
+        categories
         
         FROM 
         ' . $this->table . '
@@ -43,7 +43,7 @@ class Categories {
     
 
         $this->id = $row['id'];
-        $this->category = $row['category'];
+        $this->categories = $row['categories'];
         
     }
 
@@ -51,15 +51,15 @@ class Categories {
         $query = 'INSERT INTO ' . $this->table . '
         SET
         id = :id,
-        category = :category';
+        categories = :categories';
 
         $stmt = $this->conn->prepare($query);
     
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->category = htmlspecialchars(strip_tags($this->category));
+        $this->categories = htmlspecialchars(strip_tags($this->categories));
     
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':category', $this->category);
+        $stmt->bindParam(':categories', $this->categories);
       
         
        if($stmt->execute()) {
@@ -74,16 +74,16 @@ class Categories {
         $query = 'UPDATE ' . $this->table . '
         SET
         id = :id,
-        category = :category
+        categories = :categories
         WHERE id = :id';
 
         $stmt = $this->conn->prepare($query);
     
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->category = htmlspecialchars(strip_tags($this->category));
+        $this->categories = htmlspecialchars(strip_tags($this->categories));
     
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':category', $this->category);
+        $stmt->bindParam(':categories', $this->categories);
     
         if($stmt->execute()) {
             return true;
