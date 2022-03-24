@@ -27,7 +27,7 @@ if($num > 0) {
             'id' => $id,
             'quote' => html_entity_decode($quote),
             'author' => $author,
-            'categories' => $categories
+            'category' => $category
         );
         array_push($quote_arr, $quote_item);
  }
