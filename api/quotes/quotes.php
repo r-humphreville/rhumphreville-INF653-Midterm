@@ -22,7 +22,7 @@ if($num > 0) {
         );
         array_push($quote_arr, $quote_item);
     }
-    echo (json_encode($quote_arr));
+    print_r(json_encode($quote_arr));
 } else {
     echo json_encode(array('message' => 'No quotes found'));
 }
