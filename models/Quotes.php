@@ -16,13 +16,13 @@ class Quotes {
         q.id,
         q.quote,
         a.author,
-        c.category
+        c.categories
         From
         ' . $this->table . ' q
         LEFT JOIN authors a 
         ON
         q.authorId = a.id
-        LEFT JOIN category c
+        LEFT JOIN categories c
         ON
         q.categoryId = c.id';
 
@@ -36,13 +36,13 @@ class Quotes {
         q.id,
         q.quote,
         a.author,
-        c.category
+        c.categories
         From
         ' . $this->table . ' q
         LEFT JOIN authors a 
         ON
         q.authorId = a.id
-        LEFT JOIN category c
+        LEFT JOIN categories c
         ON
         q.categoryId = c.id
         WHERE 
@@ -56,7 +56,7 @@ class Quotes {
         $this->id = $row['id'];
         $this->quote = $row['quote'];
         $this->author = $row['author'];
-        $this->category = $row['category'];
+        $this->categories = $row['categories'];
     }
 
     public function getQuotesByAuthorID() {
@@ -65,13 +65,13 @@ class Quotes {
         q.id,
         q.quote,
         a.author,
-        c.category
+        c.categories
         From
         ' . $this->table . ' q
         LEFT JOIN authors a 
         ON
         q.authorId = a.id
-        LEFT JOIN category c
+        LEFT JOIN categories c
         ON
         q.categoryId = c.id
         WHERE 
@@ -89,13 +89,13 @@ class Quotes {
         q.id,
         q.quote,
         a.author,
-        c.category
+        c.categories
         FROM
         ' . $this->table . ' q
         LEFT JOIN authors a
         ON 
         q.authorId = a.id 
-        LEFT JOIN category c ON  
+        LEFT JOIN categories c ON  
         q.categoryId = c.id
         WHERE
         q.categoryId = :categoryId';
@@ -112,14 +112,14 @@ class Quotes {
         q.id,
         q.quote,
         a.author,
-        c.category
+        c.categories
         FROM
         ' . $this->table . ' q
         LEFT JOIN authors a 
         ON  
         q.authorId = a.id
         LEFT JOIN 
-        category c
+        categories c
         ON 
         q.categoryId = c.id
         WHERE
